@@ -20,12 +20,12 @@
       <HintPath>C:\Games\Steam\steamapps\common\Tainted Grail FoA\BepInEx\core\BepInEx.Unity.IL2CPP.dll</HintPath>
     </Reference>
 
-
-
-
-
     <Reference Include="TG.Main">
-      <HintPath>C:\Games\Steam\steamapps\common\Tainted Grail FoA\BepInEx\interop\TG.Main.dll</HintPath>
+      <HintPath>..\Il2CppDumper-net6-win-v6.7.46\DummyDll\TG.Main.dll</HintPath>
     </Reference>
+
+
+
+
   </ItemGroup>
 </Project>
