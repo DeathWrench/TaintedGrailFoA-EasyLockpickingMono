@@ -16,31 +16,23 @@ public class Plugin : BasePlugin
         internal static ManualLogSource MyLog; //So DebugLog can be called as a static function, once the Load() method sets up this variable
         public override void Load()
         {
-            Log.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loading.");
-            // Plugin startup logic
-            System.Threading.Thread.Sleep(10000);
             MyLog = base.Log;
+            Plugin.DebugLog($"Applying Harmony Patches");
             _harmony = Harmony.CreateAndPatchAll(typeof(Plugin));
-            Log.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded. HELLO WORLD!");
+            Log.LogInfo("Patching complete.");
         }
 
         public static void DebugLog(string msg)
         {
-            MyLog.LogInfo(msg);
+            MyLog.LogInfo($"{PluginInfo.PLUGIN_GUID}: {msg}");
         }
  
-        [HarmonyPatch(typeof(LockAction), "OnStart")] //Triggers when a 
+        [HarmonyPatch(typeof(LockAction), "OnStart")] //Triggers when the player start to pick a lock
         [HarmonyPostfix]
         public static void LockAction_OnStart_Postfix(LockAction __instance, Hero hero, IInteractableWithHero interactable) 
         {
-            Plugin.DebugLog($"LockAction OnStart Postfix");
-            __instance.DecreaseDifficulty(100);
-            //__instance.Unlock(false)
-
+            //Plugin.DebugLog($"LockAction OnStart Postfix");
+            __instance.DecreaseDifficulty(100); //This makes the lock fall open, and I don't feel like spending time to play around blindly with different values.
         }
-
-
-
-
     }
 }
