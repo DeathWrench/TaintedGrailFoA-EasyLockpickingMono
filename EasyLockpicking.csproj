@@ -15,8 +15,17 @@
   </ItemGroup>
 
   <ItemGroup>
+
     <Reference Include="BepInEx.Unity.IL2CPP">
       <HintPath>C:\Games\Steam\steamapps\common\Tainted Grail FoA\BepInEx\core\BepInEx.Unity.IL2CPP.dll</HintPath>
+    </Reference>
+
+
+
+
+
+    <Reference Include="TG.Main">
+      <HintPath>C:\Games\Steam\steamapps\common\Tainted Grail FoA\BepInEx\interop\TG.Main.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
